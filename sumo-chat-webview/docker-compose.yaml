@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  sumo-web:
+    image: gcr.io/xenon-momentum-168501/sumo-chat-webview:latest
+    ports:
+      - 8083:8080
+    restart: always
