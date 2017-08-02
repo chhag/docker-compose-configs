@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  sumo-web:
+    image: gcr.io/xenon-momentum-168501/sumo-web:latest
+    ports:
+      - 8082:8080
+    restart: always

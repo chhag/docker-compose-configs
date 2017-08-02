@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  mongo:
+    image: mongo
+    container_name: gas-scraper-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=i6azFcvqVALAqpys
+      - MONGO_INITDB_ROOT_PASSWORD=WRHwXbzCMoL2bizn
+    ports:
+      - 29170:27017
+    volumes:
+      - /sumo/gas-scraper/db:/data/db
+    restart: always
+
+  chrome:
+    image: berelig/chrome-headless
+    container_name: gas-scraper-chrome
+    ports:
+      - 9222:9222
+    volumes:
+      - /dev/shm:/dev/shm
+    restart: always
+
+  scraper:
+    image: gcr.io/xenon-momentum-168501/gas-scraper:latest
+    container_name: gas-scraper
+    environment:
+      - MONGO_USERNAME=i6azFcvqVALAqpys
+      - MONGO_PASSWORD=WRHwXbzCMoL2bizn
+    links:
+      - mongo
+      - chrome

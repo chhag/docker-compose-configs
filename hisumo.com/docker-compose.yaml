@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  hisumo.com:
+    image: gcr.io/xenon-momentum-168501/hisumo.com:latest
+    ports:
+      - 8081:8080
+    restart: always
