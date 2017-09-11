@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  sumo-web:
+    image: gcr.io/xenon-momentum-168501/sumo-canvas:latest
+    ports:
+      - 8084:5000
+    restart: always
